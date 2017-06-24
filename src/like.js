@@ -5,16 +5,19 @@ class Like extends Component{
       super();
       this.state = {
         liked : false,
+        likes : props.likes,
       }
   }
 
   setLike(){
-    this.setState({liked: true});
+    const newLikeAmount = this.state.likes + 1;
+    this.setState({liked: true, likes : newLikeAmount});
   }
 
   render(){
     const notLiked = (<button onClick={this.setLike.bind(this)}>Likes:{this.props.likes}</button>);
-    const liked = (<span >Likes:{this.props.likes + 1}</span>);
+    const liked = (<span >Likes:{this.state.likes}</span>);
+    
     if(this.state.liked){
       return(
         <div>
