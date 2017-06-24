@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Comment from './Comment';
 import InputBox from './InputBox';
 
-class Pic extends Component{
+class imgBox extends Component{
     constructor(props){
         super();
         this.state = {
@@ -23,7 +23,7 @@ class Pic extends Component{
       this.setState({comments : newComments});
     }
 
-    clickPic(){
+    clickComments(){
       const toggle = !this.state.showComments;
       this.setState({showComments : toggle});
     }
@@ -50,7 +50,7 @@ class Pic extends Component{
 
     render(){
       let styles = {
-        pic : {
+        imgBox : {
           borderStyle: 'solid',
           borderCollapse: 'separate',
           borderSpacing: '10px 50px',
@@ -71,10 +71,10 @@ class Pic extends Component{
       this.ifLiked(<button onClick={this.setLike.bind(this)}>Likes:{this.props.likes}</button>,
                    <span >Likes:{this.props.likes + 1}</span>)
       return(
-        <div style={styles.pic}>
+        <div style={styles.imgBox}>
           <span>{this.props.title}</span>
           <img src={this.props.url} alt=""/>
-          <button onClick={this.clickPic.bind(this)}>comments</button>
+          <button onClick={this.clickComments.bind(this)}>comments</button>
           <span style={{float: 'right'}}>{like}</span>
           {comments}
           {inputBox}
@@ -82,4 +82,4 @@ class Pic extends Component{
       );
     }
 }
-export {Pic as default}
+export {imgBox as default}

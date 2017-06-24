@@ -23,11 +23,10 @@ const init = {pics: [
 const imgBoxes = init.pics.map((key,index) =>
 (<ImgBox url = {key.url} likes = {key.likes} comments = {key.comments} title = {key.title} index={index}/>));
 
-const ImgBoxes = (props, context) => (
-  <div>
-    <span style={{}}>{props.name}</span>
-  </div>
-);
+// const ImgBoxes = (props, context) => (
+//   <div>
+//   </div>
+// );
 
 const App = (props, context) => (
   <div >
