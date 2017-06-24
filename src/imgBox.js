@@ -21,12 +21,7 @@ class Pic extends Component{
       event.preventDefault();
       const newComments = [...this.state.comments,this.state.commentValue];
       this.setState({comments : newComments});
-      // this.handleChange(event);
     }
-    // handleDelete(commentIndex){
-    //   const newComments = this.state.comments.filter((comment,index) => index !== commentIndex);
-    //   this.setState({comments : newComments});
-    // }onClick={this.handleDelete.bind(this, index)
 
     clickPic(){
       const toggle = !this.state.showComments;
