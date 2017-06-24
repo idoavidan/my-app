@@ -16,7 +16,6 @@ const InputBox = (props, context) => (
   </form>
   </div>
 );
-// const CommentValue = (props,context) => (<div/>);
 
 class Comments extends Component{
   constructor(props){
@@ -36,7 +35,6 @@ class Comments extends Component{
     event.preventDefault();
     const newComments = [...this.state.comments,this.state.commentValue];
     this.setState({comments : newComments});
-    console.log(event.target);
   }
 
   clickComments(){
