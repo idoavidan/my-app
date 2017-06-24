@@ -1,6 +1,6 @@
 import ImgBox from './imgBox';
 
-import React, { Component } from 'react';
+import React from 'react';
 
 const init = {pics: [
                       {url :'https://unsplash.it/200/200/?random',
@@ -14,7 +14,8 @@ const init = {pics: [
                        comments : [], title : "Pizza"},
                       {url :'https://unsplash.it/200/200/?random',
                        likes :2,
-                       comments : [], title : "House"},
+                       comments : [],
+                       title : "House"},
                       {url :'https://unsplash.it/200/200/?random',
                         likes :2123,
                       comments : [], title : "Food"}
