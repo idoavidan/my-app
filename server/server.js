@@ -21,6 +21,7 @@ const app = express();
 
 app.use('/graphql', graphqlHTTP({
   schema,
+  rootValue: root,
   pretty : true
 }));
 
