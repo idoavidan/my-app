@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Like extends Component{
   constructor(props){
-      super();
+      super(props);
       this.state = {
         liked : false,
         likes : props.likes,
@@ -17,7 +17,7 @@ class Like extends Component{
   render(){
     const notLiked = (<button onClick={this.setLike.bind(this)}>Likes:{this.props.likes}</button>);
     const liked = (<span >Likes:{this.state.likes}</span>);
-    
+
     if(this.state.liked){
       return(
         <div>

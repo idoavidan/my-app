@@ -12,14 +12,14 @@ const InputBox = (props, context) => (
     <label>
       <input type="text" value={props.commentValue} onChange={props.handleChange} />
     </label>
-    <input type="submit" value="s" />
+    <input type="submit" value="s" hide />
   </form>
   </div>
 );
 
 class Comments extends Component{
   constructor(props){
-      super();
+      super(props);
       this.state = {
         comments : props.comments,
         commentValue : "",
