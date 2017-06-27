@@ -44,10 +44,11 @@ class Comments extends Component{
 
   render(){
     const comments = this.state.comments.map((comment,index) =>
-    (<Comment commentText = {comment} index={index} />));
+    (<Comment commentText = {comment} key={index} />));
 
     const inputBox =  (<InputBox handleSubmit={this.handleSubmit.bind(this)}
                       handleChange={this.handleChange.bind(this)}/>);
+
     if(this.state.showComments) { return (
       <div>
           <button onClick={this.clickComments.bind(this)}>comments</button>

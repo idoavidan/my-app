@@ -22,7 +22,7 @@ const init = {pics: [
                      ]}
 
 const imgBoxes = init.pics.map((key,index) =>
-(<ImgBox url = {key.url} likes = {key.likes} comments = {key.comments} title = {key.title} index={index}/>));
+(<ImgBox url = {key.url} likes = {key.likes} comments = {key.comments} title = {key.title} key={index}/>));
 
 const App = (props, context) => (
   <div >
