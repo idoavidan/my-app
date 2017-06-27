@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app';
-import Client from './model/model';
+import {getAll} from './model/model';
 
-
-const form = <App/>;
+// console.log(getAll());
+const form = <App getAll={"getAll"}/>;
 // console.log(form.props);
 
 ReactDOM.render(form, document.getElementById('root'));
