@@ -12,7 +12,7 @@ const InputBox = (props, context) => (
     <label>
       <input type="text" value={props.commentValue} onChange={props.handleChange} />
     </label>
-    <input type="submit" value="s" hide />
+    <input type="submit" value="s"/>
   </form>
   </div>
 );
