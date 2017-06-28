@@ -4,8 +4,16 @@ const graphqlHTTP = require('express-graphql');
 var JsonDB = require('node-json-db');
 import {buildSchema} from 'graphql';
 
+// db
+var db = new JsonDB("myDB", true, false);
 
 var schema = buildSchema(`
+  type picPost {
+    url: String!
+    likes: Int!
+    comments : [String]!
+    title : String
+  }
   type Query {
     hello: String
   }
@@ -25,28 +33,6 @@ app.use('/graphql', graphqlHTTP({
   rootValue: root,
   pretty : true
 }));
-
-// db
-var db = new JsonDB("myDB", true, false);
-db.push("/testDB",{pics: [
-                      {url :'https://unsplash.it/200/200/?random',
-                       likes :11,
-                       comments : ["hahaha met"], title : "Banana"},
-                      {url :'https://unsplash.it/200/200/?random',
-                       likes :2,
-                       comments : [], title : "Falafel"},
-                      {url :'https://unsplash.it/200/200/?random',
-                       likes :3,
-                       comments : [], title : "Pizza"},
-                      {url :'https://unsplash.it/200/200/?random',
-                       likes :2,
-                       comments : [],
-                       title : "House"},
-                      {url :'https://unsplash.it/200/200/?random',
-                        likes :2123,
-                      comments : [], title : "Food"}
-                    ]});
-
 
 // start server
 var server = app.listen(8080, () => {
