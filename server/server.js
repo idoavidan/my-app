@@ -8,14 +8,19 @@ import {buildSchema} from 'graphql';
 var db = new JsonDB("myDB", true, false);
 
 var schema = buildSchema(`
-  type picPost {
-    url: String!
-    likes: Int!
-    comments : [String]!
+  type PicPost {
+    url: String
+    likes: Int
+    comments : [String]
     title : String
+  }
+  type pics {
+    pics : [PicPost]
   }
   type Query {
     hello: String
+    getLastPicPost: PicPost
+    getPics: pics
   }
 `);
 
@@ -24,8 +29,13 @@ var root = {
   hello: () => {
     return "Init";
   },
+  getLastPicPost: () => {
+    return db.getData("/testDB").pics[0];
+  },
+  getPics: () => {
+    return db.getData("/testDB");
+  }
 };
-
 const app = express();
 
 app.use('/graphql', graphqlHTTP({
