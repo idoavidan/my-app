@@ -1,11 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app';
-import {getAll} from './model/model';
+import {helloPromise} from './model/model';
 
-console.log(getAll());
-const form = <App getAll={getAll}/>;
-// console.log(form.props);
+let title = "wow";
 
-ReactDOM.render(form, document.getElementById('root'));
+helloPromise().then(res =>
+  {
+  const form = <App title={title} initValue={res}/>
+  ReactDOM.render(form, document.getElementById('root'));
+}
+);
+
+
+
+
 // registerServiceWorker();

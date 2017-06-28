@@ -1,6 +1,6 @@
 import ImgBox from './imgBox';
-
 import React from 'react';
+
 
 const init = {pics: [
                       {url :'https://unsplash.it/200/200/?random',
@@ -23,11 +23,11 @@ const init = {pics: [
 
 const imgBoxes = init.pics.map((key,index) =>
 (<ImgBox url = {key.url} likes = {key.likes} comments = {key.comments} title = {key.title} key={index}/>));
-// const Box = (props, context) =>
+
 
 const App = (props, context) => (
   <div >
-    <h3 style={{textAlign: 'center',backgroundColor: 'grey'}}>{props.getAll}</h3>
+    <h3 style={{textAlign: 'center',backgroundColor: 'grey'}}>{"props.fuck().then({return})"}</h3>
     {imgBoxes}
   </div>
 );
