@@ -12,6 +12,8 @@ class Like extends Component{
   setLike(){
     const newLikeAmount = this.state.likes + 1;
     this.setState({liked: true, likes : newLikeAmount});
+    const x = this.props.addLike();
+    console.log(x);
   }
 
   render(){

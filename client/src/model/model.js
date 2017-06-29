@@ -10,3 +10,6 @@ export const initPromise =
 
 export const addComment =
     async () => "hi im not a Promise";
+
+export const addLike =
+    async () => "hi i will be addLike function";

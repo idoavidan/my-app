@@ -35,6 +35,8 @@ class Comments extends Component{
     event.preventDefault();
     const newComments = [...this.state.comments,this.state.commentValue];
     this.setState({comments : newComments});
+    const x = this.props.addComment();
+    console.log(x);
   }
 
   clickComments(){
