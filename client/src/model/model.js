@@ -9,7 +9,7 @@ export const initPromise =
     async () => Client.query('{getPics{pics{url,likes,comments,title}}}');
 
 export const addComment =
-    async () => "hi im not a Promise";
+    async (index,comment) => "hi im not a Promise" + index;
 
 export const addLike =
-    async () => "hi i will be addLike function";
+    async (index) => "hi i will be addLike function" + index;

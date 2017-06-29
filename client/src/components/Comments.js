@@ -58,10 +58,10 @@ class Comments extends Component{
           {inputBox}
       </div>)
     }
-    else {return(
+    return(
       <div>
         <button onClick={this.clickComments.bind(this)}>comments</button>
       </div>)}
-  }
+  
 }
 export {Comments as default}

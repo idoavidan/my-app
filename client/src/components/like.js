@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 
 class Like extends Component{
   constructor(props){
-      super(props);
-      this.state = {
-        liked : false,
-        likes : props.likes,
-      }
+    super(props);
+    this.state = {
+      liked : false,
+      likes : props.likes,
+    }
   }
 
   setLike(){
     const newLikeAmount = this.state.likes + 1;
     this.setState({liked: true, likes : newLikeAmount});
-    const x = this.props.addLike();
+    const x = this.props.addLike(2);
     console.log(x);
   }
 
@@ -26,12 +26,10 @@ class Like extends Component{
           <span style={{float: 'right'}}>{liked}</span>
         </div>);
     }
-    else{
-      return(
+    return(
         <div>
           <span style={{float: 'right'}}>{notLiked}</span>
         </div>);
-    }
   }
 }
 export {Like as default}
