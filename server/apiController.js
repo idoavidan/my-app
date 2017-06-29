@@ -29,7 +29,7 @@ export const root = {
     return "Init";
   },
   getLastPicPost: () => {
-    return db.getData("/testDB").pics[0];
+    return db.getData("/testDB/pics")[0];
   },
   getPics: () => {
     return db.getData("/testDB");
