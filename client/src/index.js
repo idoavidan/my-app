@@ -9,5 +9,6 @@ const form = <App title={title}
               initPromise={initPromise}
               addComment={addComment}
               addLike={addLike}/>
+              
 ReactDOM.render(form, document.getElementById('root'));
 // registerServiceWorker();

@@ -1,4 +1,3 @@
-// import ImgBox from './imgBox';
 import React, { Component } from 'react';
 import Comments from './Comments';
 import Like from './like';
