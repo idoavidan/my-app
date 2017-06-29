@@ -31,7 +31,9 @@ class App extends Component {
 
   async mapPicsToComponents(pics){
     return pics.map((key,index) =>
-        (<ImgBox url = {key.url} likes = {key.likes} comments = {key.comments} title = {key.title} key={index}/>));
+        (<ImgBox url = {key.url} likes = {key.likes}
+        comments = {key.comments} title = {key.title}
+        key={index} addComment={this.props.addComment}/>));
   }
 
   async componentDidMount() {

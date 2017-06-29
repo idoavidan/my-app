@@ -7,3 +7,6 @@ const Client  = new Lokka({
 
 export const initPromise =
     async () => Client.query('{getPics{pics{url,likes,comments,title}}}');
+
+export const addComment =
+    async () => "hi im not a Promise";

@@ -3,9 +3,6 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql');
 import {root, schema} from './apiController';
 
-
-// db
-
 const app = express();
 
 app.use('/graphql', graphqlHTTP({

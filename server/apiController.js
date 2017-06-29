@@ -35,3 +35,5 @@ export const root = {
     return db.getData("/testDB");
   }
 };
+
+console.log(db.getData("/testDB/pics[0]/url"));
