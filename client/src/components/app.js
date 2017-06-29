@@ -10,12 +10,13 @@ let styles = {
     // padding: '10px'
 }
 
+
 const ImgBox = (props,context) => (
   <div style={styles}>
     <span>{props.title}</span>
     <img src={props.url} alt=""/>
-    <Like likes={props.likes} addLike={props.addLike}/>
-    <Comments comments={props.comments} addComment={props.addComment}/>
+    <Like likes={props.likes} addLike={props.addLike} picIndex={props.picIndex}/>
+    <Comments comments={props.comments} addComment={props.addComment} picIndex={props.picIndex}/>
   </div>
 )
 
@@ -32,7 +33,7 @@ class App extends Component {
     return pics.map((key,index) =>
         (<ImgBox url = {key.url} likes = {key.likes}
         comments = {key.comments} title = {key.title}
-        key={index} addComment={this.props.addComment} addLike={this.props.addLike}/>));
+        key={index} picIndex={index} addComment={this.props.addComment} addLike={this.props.addLike}/>));
   }
 
   async componentDidMount() {

@@ -35,8 +35,7 @@ class Comments extends Component{
     event.preventDefault();
     const newComments = [...this.state.comments,this.state.commentValue];
     this.setState({comments : newComments});
-    const x = this.props.addComment();
-    console.log(x);
+    const x = this.props.addComment(this.props.picIndex, this.state.commentValue);
   }
 
   clickComments(){
@@ -62,6 +61,6 @@ class Comments extends Component{
       <div>
         <button onClick={this.clickComments.bind(this)}>comments</button>
       </div>)}
-  
+
 }
 export {Comments as default}

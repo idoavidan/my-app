@@ -14,9 +14,12 @@ export const schema = buildSchema(`
     pics : [PicPost]
   }
   type Query {
-    hello: String
     getLastPicPost: PicPost
     getPics: pics
+  }
+  type Mutation {
+      addLike(picIndex : Int) : Int
+      addComment(picIndex : Int, commentString : String!) : Int
   }
 `);
 
@@ -25,8 +28,14 @@ var db = new JsonDB("myDB", true, false);
 
 // The root provides a resolver function for each API endpoint
 export const root = {
-  hello: () => {
-    return "Init";
+  addLike: function ({picIndex}) {
+    const oldLikesAmount = db.getData("/testDB/pics[" +picIndex +"]/likes");
+    db.push("/testDB/pics[" +picIndex +"]/likes", oldLikesAmount + 1);
+    return oldLikesAmount;
+  },
+  addComment: function({picIndex, commentString}){
+    db.push("/testDB/pics[" + picIndex +"]/comments[]", commentString, true);
+    return picIndex;
   },
   getLastPicPost: () => {
     return db.getData("/testDB/pics")[0];
@@ -35,5 +44,3 @@ export const root = {
     return db.getData("/testDB");
   }
 };
-
-console.log(db.getData("/testDB/pics[0]/url"));
