@@ -3,21 +3,28 @@ import Comments from './Comments';
 import Like from './like';
 
 let styles = {
-    // borderStyle: 'solid',
-    // borderSpacing: '10px 50px',
-    width: "80%",
-    margin: "auto",
-    position: 'relative',
-    // textAlign: "center",
-    // padding: '10px'
+    header : {
+      textAlign: 'center',
+      backgroundColor: 'grey'},
+
+    outlet : {
+      width: "80%",
+      margin : "auto",
+      position: 'relative'},
+
+    ImgBox : {
+      out : {textAlign: 'center', position : "relative"},
+      underTitle: { display: 'inline-block' },
+      img : {position : "relaive"}
+    },
 }
 
 
 const ImgBox = (props,context) => (
-  <div style={{textAlign: 'center', position : "relative"}}>
+  <div style={styles.ImgBox.out}>
     <div>{props.title}</div>
-    <div style={{ display: 'inline-block' }}>
-          <img src={props.url} alt="LOADING" style={{position : "relaive"}}/>
+    <div style={styles.ImgBox.underTitle}>
+          <img src={props.url} alt="LOADING" style={styles.ImgBox.img}/>
           <Like likes={props.likes} addLike={props.addLike} picIndex={props.picIndex}/>
           <Comments comments={props.comments} addComment={props.addComment} picIndex={props.picIndex}/>
     </div>
@@ -54,9 +61,9 @@ class App extends Component {
   render() {
     return (
       <div >
-        <h3 style={{textAlign: 'center',backgroundColor: 'grey'}}>wow</h3>
+        <h3 style={styles.header}>wow</h3>
         <AddImg/>
-        <div style={styles}>
+        <div style={styles.outlet}>
         {this.state.pics || 'loading'}
         </div>
       </div>

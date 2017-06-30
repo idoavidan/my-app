@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+let styles = {
+  float : 'right'
+}
+
 class Like extends Component{
   constructor(props){
     super(props);
@@ -22,12 +26,12 @@ class Like extends Component{
     if(this.state.liked){
       return(
         <div>
-          <span style={{float: 'right'}}>{liked}</span>
+          <span style={styles}>{liked}</span>
         </div>);
     }
     return(
         <div>
-          <span style={{float: 'right'}}>{notLiked}</span>
+          <span style={styles}>{notLiked}</span>
         </div>);
   }
 }
