@@ -19,7 +19,6 @@ let styles = {
     },
 }
 
-
 const ImgBox = (props,context) => (
   <div style={styles.ImgBox.out}>
     <div>{props.title}</div>
