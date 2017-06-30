@@ -7,7 +7,7 @@ let styles = {
     inputField : { width:'calc(100% - 100px)'},
     inputButton : {width: '100px'}
   },
-  comments : {textAlign: 'left', 'min-width' : '435px'}
+  comments : {textAlign: 'left', 'minWidth' : '100px'}
 
 }
 
