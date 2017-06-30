@@ -5,16 +5,17 @@ import Like from './like';
 let styles = {
     // borderStyle: 'solid',
     // borderSpacing: '10px 50px',
-    width: "300px",
-    margin: 'auto',
+    width: "80%",
+    margin: "auto",
+    position: 'relative',
     // textAlign: "center",
     // padding: '10px'
 }
 
 
 const ImgBox = (props,context) => (
-  <div style={{width: "200px", margin: 'auto', position : "relaive"}}>
-    <span>{props.title}</span>
+  <div style={{textAlign: 'center', position : "relative"}}>
+    <div>{props.title}</div>
     <img src={props.url} alt="LOADING" style={{width : "100%", position : "relaive"}}/>
     <Like likes={props.likes} addLike={props.addLike} picIndex={props.picIndex}/>
     <Comments comments={props.comments} addComment={props.addComment} picIndex={props.picIndex}/>

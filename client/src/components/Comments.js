@@ -51,14 +51,14 @@ class Comments extends Component{
                       handleChange={this.handleChange.bind(this)}/>);
 
     if(this.state.showComments) { return (
-      <div>
+      <div style={{textAlign: 'left'}}>
           <button onClick={this.clickComments.bind(this)}>comments</button>
           {comments}
           {inputBox}
       </div>)
     }
     return(
-      <div>
+      <div style={{textAlign: 'left'}}>
         <button onClick={this.clickComments.bind(this)}>comments</button>
       </div>)}
 
