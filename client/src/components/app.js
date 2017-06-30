@@ -16,9 +16,11 @@ let styles = {
 const ImgBox = (props,context) => (
   <div style={{textAlign: 'center', position : "relative"}}>
     <div>{props.title}</div>
-    <img src={props.url} alt="LOADING" style={{width : "100%", position : "relaive"}}/>
-    <Like likes={props.likes} addLike={props.addLike} picIndex={props.picIndex}/>
-    <Comments comments={props.comments} addComment={props.addComment} picIndex={props.picIndex}/>
+    <div style={{ display: 'inline-block' }}>
+          <img src={props.url} alt="LOADING" style={{position : "relaive"}}/>
+          <Like likes={props.likes} addLike={props.addLike} picIndex={props.picIndex}/>
+          <Comments comments={props.comments} addComment={props.addComment} picIndex={props.picIndex}/>
+    </div>
   </div>
 )
 
