@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
 const Comment = (props, context) => (
-  <div>
+  <div style={{padding: '8px 0', 'border-bottom': '1px solid #e2e2e2'}}>
     <span style={{}}>{props.commentText}</span>
   </div>
 );
 
 const InputBox = (props, context) => (
-  <div>
+  <div style={{'white-space':'nowrap', margin: '10px 0'}}>
   <form onSubmit={props.handleSubmit}>
     <label>
-      <input type="text" value={props.commentValue} onChange={props.handleChange} />
+      <input type="text" style={{ width:'calc(100% - 100px)'}} value={props.commentValue} onChange={props.handleChange} />
     </label>
-    <input type="submit" value="s"/>
+    <input type="submit" style={{width: '100px'}} value="s"/>
   </form>
   </div>
 );
@@ -44,21 +44,25 @@ class Comments extends Component{
   }
 
   render(){
-    const comments = this.state.comments.map((comment,index) =>
-    (<Comment commentText = {comment} key={index} />));
+    const comments = this.state.comments.map((comment,index) => {
+      if (comment) {
+        return (<Comment commentText = {comment} key={index} />);
+      }
+    })
 
     const inputBox =  (<InputBox handleSubmit={this.handleSubmit.bind(this)}
                       handleChange={this.handleChange.bind(this)}/>);
 
     if(this.state.showComments) { return (
-      <div>
+      <div style={{textAlign: 'left', 'min-width' : '435px'}}>
+
           <button onClick={this.clickComments.bind(this)}>comments</button>
-          {comments}
-          {inputBox}
+          <div>{comments}</div>
+          <div>{inputBox}</div>
       </div>)
     }
     return(
-      <div>
+      <div style={{textAlign: 'left', 'min-width' : '435px'}}>
         <button onClick={this.clickComments.bind(this)}>comments</button>
       </div>)}
 
