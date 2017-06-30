@@ -3,20 +3,27 @@ import Comments from './Comments';
 import Like from './like';
 
 let styles = {
-    borderStyle: 'solid',
-    borderSpacing: '10px 50px',
-    width: "200px",
+    // borderStyle: 'solid',
+    // borderSpacing: '10px 50px',
+    width: "300px",
     margin: 'auto',
+    // textAlign: "center",
     // padding: '10px'
 }
 
 
 const ImgBox = (props,context) => (
-  <div style={styles}>
+  <div style={{width: "200px", margin: 'auto', position : "relaive"}}>
     <span>{props.title}</span>
-    <img src={props.url} alt=""/>
+    <img src={props.url} alt="LOADING" style={{width : "100%", position : "relaive"}}/>
     <Like likes={props.likes} addLike={props.addLike} picIndex={props.picIndex}/>
     <Comments comments={props.comments} addComment={props.addComment} picIndex={props.picIndex}/>
+  </div>
+)
+
+const AddImg = (props,context) => (
+  <div>
+    <span></span>
   </div>
 )
 
@@ -45,7 +52,10 @@ class App extends Component {
     return (
       <div >
         <h3 style={{textAlign: 'center',backgroundColor: 'grey'}}>wow</h3>
+        <AddImg/>
+        <div style={styles}>
         {this.state.pics || 'loading'}
+        </div>
       </div>
     )
   }

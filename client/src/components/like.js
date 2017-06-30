@@ -31,5 +31,6 @@ class Like extends Component{
         </div>);
   }
 }
+
 export {Like as default}
 /*  <button onClick={hideComent}>hide</button>*/
