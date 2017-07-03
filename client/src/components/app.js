@@ -54,8 +54,23 @@ class App extends Component {
 
   async componentDidMount() {
     const pics = await this.props.initPromise();
+
     this.setStateAsync({pics : await this.mapPicsToComponents(pics.getPics.pics)});
+    // const addLike = () => console.log(x);
+    this.props.socket.addEventListener('message', event => {
+      const data = JSON.parse(event.data);
+      // console.log(data);
+      if(data.type === "LIKE"){
+        console.log(data)
+        const newState = this.state.pics[data.like.index].props.likes + 100;
+        console.log(newState)
+        // this.setStateAsync({state.pics[data.like.index].props.likes : newState})
+      }
+    });
+
   }
+
+
 
   render() {
     return (
