@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 let styles = {
-  comment: {padding: '8px 0', 'border-bottom': '1px solid #e2e2e2'},
+  comment: {padding: '8px 0', 'borderBottom': '1px solid #e2e2e2'},
   inputBox : {
-    out : {'white-space':'nowrap', margin: '10px 0'},
+    out : {'whiteSpace':'nowrap', margin: '10px 0'},
     inputField : { width:'calc(100% - 100px)'},
     inputButton : {width: '100px'}
   },
-  comments : {textAlign: 'left', 'minWidth' : '100px'}
+  comments : {textAlign: 'left', 'minWidth' : '200px'}
 
 }
 

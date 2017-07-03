@@ -14,11 +14,14 @@ export const initPromise =
 export const addComment =
     async (index,comment) => Client.mutate("{addComment(picIndex:" +index+
                                         ', commentString : "'+comment+'")}'
-                                            ).then(x => console.log(x));
+                                            ).then(conlog);
 
 export const addLike =
-    async (index) => Client.mutate("{addLike(picIndex:" +index+ ")}").then(x => console.log(x));
+    async (index) => Client.mutate("{addLike(picIndex:" +index+ ")}").then(conlog);
 
+const conlog = x => console.log(x);
+// export const initPromise =
+//         async () => Client.query('{getPics{pics{url,likes,comments,title}}}');
 //downstream
 // export const checkForNewComments =
     // async () => Client.query

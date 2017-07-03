@@ -7,7 +7,7 @@ const Client  = new Lokka({
 
 
 // Create WebSocket connection.
-const socket = new WebSocket('ws://localhost:8080');
+const socket = new WebSocket('ws://localhost:8080/ws');
 
 // Connection opened
 socket.addEventListener('open', function (event) {
