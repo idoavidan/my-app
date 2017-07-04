@@ -13,14 +13,36 @@ class Like extends Component{
     }
   }
 
-  setLike(){
-    const newLikeAmount = this.state.likes + 1;
-    this.setState({liked: true, likes : newLikeAmount});
+  sendLike(){
     this.props.likeModel.addLike(this.props.picIndex);
   }
 
+  setStateLike(){
+    const newLikeAmount = this.state.likes + 1;
+    this.setState({likes : newLikeAmount});
+  }
+
+  setStateButton(){
+    this.setState({liked: true});
+  }
+
+  setLike(){
+    this.sendLike();
+    this.setStateLike();
+    this.setStateButton();
+  }
+
+  async componentDidMount() {
+    this.props.likeModel.socket.addEventListener('message', event => {
+      const data = JSON.parse(event.data);
+      if(data.type === "LIKE" && data.like.index === this.props.picIndex){
+        this.setStateLike();
+      }
+    });
+  }
+
   render(){
-    const notLiked = (<button onClick={this.setLike.bind(this)}>Likes:{this.props.likes}</button>);
+    const notLiked = (<button onClick={this.setLike.bind(this)}>Likes:{this.state.likes}</button>);
     const liked = (<span >Likes:{this.state.likes}</span>);
 
     if(this.state.liked){

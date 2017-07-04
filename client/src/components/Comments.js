@@ -42,11 +42,27 @@ class Comments extends Component{
     this.setState({commentValue: event.target.value});
   }
 
+  setCommentState(newComment){
+    const newComments = [...this.state.comments,newComment];
+    this.setState({comments : newComments});
+  }
+  sendComment(){
+    this.props.commentModel.addComment(this.props.picIndex, this.state.commentValue);
+  }
+
   handleSubmit(event) {
     event.preventDefault();
-    const newComments = [...this.state.comments,this.state.commentValue];
-    this.setState({comments : newComments});
-    this.props.commentModel.addComment(this.props.picIndex, this.state.commentValue);
+    this.setCommentState(this.state.commentValue);
+    this.sendComment();
+  }
+
+  async componentDidMount() {
+    this.props.commentModel.socket.addEventListener('message', event => {
+      const data = JSON.parse(event.data);
+      if(data.type === "COMMENT" && data.comment.index === this.props.picIndex){
+        this.setCommentState(data.comment.comment);
+      }
+    });
   }
 
   clickComments(){

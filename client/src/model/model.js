@@ -19,7 +19,7 @@ export const initPromise =
 export const addComment =
     async (index,comment) => Client.mutate("{addComment(picIndex:" +index+
                                         ', commentString : "'+comment+'")}'
-                                      ).then(sendWS({comment : {index,comment}}));
+                                      ).then(sendWS({type: "COMMENT", comment : {index,comment}}));
 
 export const addLike =
     async (index) => Client.mutate("{addLike(picIndex:" +index+ ")}"
@@ -30,7 +30,7 @@ const conlog = x => console.log(x);
 
 
 
-// 
+//
 // this.props.socket.addEventListener('message', event => {
 //   const data = JSON.parse(event.data);
 //   if(data.type === "LIKE"){
