@@ -4,7 +4,7 @@ const ws = require("ws");
 const http = require('http');
 
 import {root, schema} from './apiController';
-import {connection} from './wsController';
+// import {connection} from './wsController';
 const url = require('url');
 
 const app = express();

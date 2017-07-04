@@ -1,8 +1,8 @@
 var JsonDB = require('node-json-db');
-const ws = require("ws");
+// const ws = require("ws");
 
 import {buildSchema} from 'graphql';
-import {messageNot} from './wsController';
+// import {messageNot} from './wsController';
 
 //schema
 export const schema = buildSchema(`
