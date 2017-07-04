@@ -21,11 +21,13 @@ let styles = {
 
 const ImgBox = (props,context) => (
   <div style={styles.ImgBox.out}>
-    <div>{props.title}</div>
+    <div>{props.each.title}</div>
     <div style={styles.ImgBox.underTitle}>
-          <img src={props.url} alt="LOADING" style={styles.ImgBox.img}/>
-          <Like likes={props.likes} addLike={props.addLike} picIndex={props.picIndex}/>
-          <Comments comments={props.comments} addComment={props.addComment} picIndex={props.picIndex}/>
+          <img src={props.each.url} alt="LOADING" style={styles.ImgBox.img}/>
+          <Like likes={props.each.likes} likeModel={props.likeModel} picIndex={props.picIndex}/>
+          <Comments comments={props.each.comments}
+                    commentModel={props.commentModel}
+                      picIndex={props.picIndex} />
     </div>
   </div>
 )
@@ -46,31 +48,16 @@ class App extends Component {
   }
 
   async mapPicsToComponents(pics){
-    return pics.map((key,index) =>
-        (<ImgBox url = {key.url} likes = {key.likes}
-        comments = {key.comments} title = {key.title}
-        key={index} picIndex={index} addComment={this.props.addComment} addLike={this.props.addLike}/>));
+    return pics.map((each,index) =>
+        (<ImgBox each={each}
+       key={index} picIndex={index} commentModel={this.props.commentModel}
+       likeModel={this.props.likeModel}/>));
   }
 
   async componentDidMount() {
     const pics = await this.props.initPromise();
-
     this.setStateAsync({pics : await this.mapPicsToComponents(pics.getPics.pics)});
-    // const addLike = () => console.log(x);
-    this.props.socket.addEventListener('message', event => {
-      const data = JSON.parse(event.data);
-      // console.log(data);
-      if(data.type === "LIKE"){
-        console.log(data)
-        const newState = this.state.pics[data.like.index].props.likes + 100;
-        console.log(newState)
-        // this.setStateAsync({state.pics[data.like.index].props.likes : newState})
-      }
-    });
-
   }
-
-
 
   render() {
     return (

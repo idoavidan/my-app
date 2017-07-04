@@ -27,3 +27,14 @@ export const addLike =
 
 const sendWS = x => socket.send(JSON.stringify(x));
 const conlog = x => console.log(x);
+
+
+
+// 
+// this.props.socket.addEventListener('message', event => {
+//   const data = JSON.parse(event.data);
+//   if(data.type === "LIKE"){
+//     console.log(data)
+//     const newState = this.state.pics[data.like.index].props.likes + 100;
+//   }
+// });

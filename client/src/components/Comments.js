@@ -46,7 +46,7 @@ class Comments extends Component{
     event.preventDefault();
     const newComments = [...this.state.comments,this.state.commentValue];
     this.setState({comments : newComments});
-    this.props.addComment(this.props.picIndex, this.state.commentValue);
+    this.props.commentModel.addComment(this.props.picIndex, this.state.commentValue);
   }
 
   clickComments(){
