@@ -12,7 +12,7 @@ socket.addEventListener('open', function (event) {
 
 // export const likeUpdate = socket.addEventListener('message', function(event){console.log(event.data)});
 
-
+// CHANGE ALL OF THIS TO "MY STUFF"
 export const initPromise =
     async () => Client.query('{getPics{pics{url,likes,comments,title}}}');
 
