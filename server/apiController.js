@@ -20,9 +20,9 @@ export const schema = buildSchema(`
     getPics: pics
   }
   type Mutation {
-      addLike(picIndex : Int) : Int
-      addComment(picIndex : Int, commentString : String!) : Int
-      addPic(url : String, title : String) : Int
+      addLike(picIndex : Int!) : Int
+      addComment(picIndex : Int!, commentString : String!) : Int
+      addPic(url : String!, title : String!) : Int
   }
 `);
 
@@ -43,7 +43,8 @@ const addComment = async function({picIndex, commentString}){
 
 const addPic = async function({url, title}){
   let newPic = {url: url, title : title, comments : [], likes : 0}
-  db.push("/testDB/pics[]", newPic);
+  console.log(newPic);
+  // db.push("/testDB/pics[]", newPic);
   return 1;
 }
 

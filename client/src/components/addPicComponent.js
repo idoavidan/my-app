@@ -8,7 +8,7 @@ let styles = {
 const InputBox = (props, context) => (
   <div>
   <form onSubmit={props.handleSubmit}>
-    <label value="ido">
+    <label>
       <span>{props.label}</span>
       <input type="text" value={props.inputUrlValue} onChange={props.handleChange} />
     </label>
@@ -19,7 +19,7 @@ const InputBox = (props, context) => (
 class addPicComponent extends Component{
   constructor(props){
     super(props);
-    this.state = {url : "", title : ""}
+    // this.state = {url : "", title : ""}
   }
 
 
@@ -40,8 +40,10 @@ class addPicComponent extends Component{
     this.setState({inputTitleValue: event.target.value});
   }
 
-  handleSubmit(){
-    addPic(this.state.url, this.state.title);
+  handleSubmitButton(event){
+    event.preventDefault();
+    addPic(this.state.inputUrlValue, this.state.inputTitleValue);
+    // console.log(this.state.inputUrlValue,this.state.inputTitleValue);
   }
 
   render(){
@@ -51,10 +53,10 @@ class addPicComponent extends Component{
 
     return(
       <div style={styles}>
-        <span>IWantToBeComponent{this.state.inputUrlValue}</span>
+        <span>IWantToBeComponent</span>
         {inputUrl}
         {inputTitle}
-        <button onClick={this.handleSubmit.bind(this)}>send</button>
+        <button onClick={this.handleSubmitButton.bind(this)}>send</button>
       </div>);
   }
 }
