@@ -53,7 +53,11 @@ const getLastPicPost = async () => {
 };
 
 const getPics = async () => {
-  return db.getData("/testDB");
+  const pics = db.getData("/testDB")
+  // const rPics = pics.reverse();
+  // console.log(pics.pics.reverse());
+  const rpics = {pics : pics.pics.reverse()};
+  return rpics;
 };
 
 

@@ -70,7 +70,7 @@ class App extends Component {
     return (
       <div >
         <h3 style={styles.header}>wow</h3>
-        <AddPicComponent updatePics={this.updatePics.bind(this)}/>
+        <AddPicComponent updatePics={this.updatePics.bind(this)} style={styles.outlet}/>
         <div style={styles.outlet}>
         {this.state.pics || 'loading'}
         </div>
