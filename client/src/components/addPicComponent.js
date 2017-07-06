@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 let styles = {
-  float : 'right'
+  margin : 'auto'
 }
 
 const InputBox = (props, context) => (
@@ -61,7 +61,7 @@ class addPicComponent extends Component{
                                  handleChange={this.handleTitleChange.bind(this)}/>);
 
     return(
-      <div>
+      <div style={styles}>
         <span>IWantToBeComponent{this.state.inputUrlValue}</span>
         {inputUrl}
         {inputTitle}
