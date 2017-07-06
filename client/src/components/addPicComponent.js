@@ -53,7 +53,7 @@ class addPicComponent extends Component{
 
     return(
       <div style={styles}>
-        <span>IWantToBeComponent</span>
+        <span>add pics here</span>
         {inputUrl}
         {inputTitle}
         <button onClick={this.handleSubmitButton.bind(this)}>send</button>

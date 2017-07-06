@@ -1,5 +1,1 @@
-{"testDB":{"pics":[{"url":"http://www.reactiongifs.com/r/dreams.gif","likes":51,"comments":[],"title":"Banana"},
-{"url":"https://unsplash.it/200/200/?random","likes":60,"comments":["9","ADad","k",",","fdssdv"],"title":"Falafel"},
-{"url":"https://unsplash.it/200/200/?random","likes":21,"comments":[],"title":"Pizza"},
-{"url":"https://unsplash.it/200/200/?random","likes":13,"comments":[],"title":"House"},
-{"url":"https://unsplash.it/200/200/?random","likes":2125,"comments":[],"title":"Food"}]}}
+{"testDB":{"pics":[{"url":"http://www.reactiongifs.com/r/dreams.gif","likes":51,"comments":["dont"],"title":"Banana"},{"url":"https://unsplash.it/200/200/?random","likes":60,"comments":["9","ADad","k",",","fdssdv"],"title":"Falafel"},{"url":"https://unsplash.it/200/200/?random","likes":21,"comments":[],"title":"Pizza"},{"url":"https://unsplash.it/200/200/?random","likes":13,"comments":[],"title":"House"},{"url":"https://unsplash.it/200/200/?random","likes":2125,"comments":[],"title":"Food"},{"url":"https://unsplash.it/200/200/?random","title":"dynamic","comments":["i comment"],"likes":1}]}}

@@ -43,10 +43,10 @@ const addComment = async function({picIndex, commentString}){
 
 const addPic = async function({url, title}){
   let newPic = {url: url, title : title, comments : [], likes : 0}
-  console.log(newPic);
-  // db.push("/testDB/pics[]", newPic);
+  // console.log(newPic);
+  db.push("/testDB/pics[]", newPic);
   return 1;
-}
+};
 
 const getLastPicPost = async () => {
   return db.getData("/testDB/pics")[0];
@@ -63,4 +63,5 @@ export const root = {
   addComment: addComment,
   getLastPicPost: getLastPicPost,
   getPics: getPics,
+  addPic: addPic,
 };
