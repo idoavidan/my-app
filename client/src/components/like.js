@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {addLike} from './models/likesModel';
+import {socketClient} from './models/serverConnections';
 
 let styles = {
   float : 'right'
@@ -14,7 +16,7 @@ class Like extends Component{
   }
 
   sendLike(){
-    this.props.likeModel.addLike(this.props.picIndex);
+    addLike(this.props.picIndex);
   }
 
   setStateLike(){
@@ -33,7 +35,7 @@ class Like extends Component{
   }
 
   async componentDidMount() {
-    this.props.likeModel.socket.addEventListener('message', event => {
+    socketClient.addEventListener('message', event => {
       const data = JSON.parse(event.data);
       if(data.type === "LIKE" && data.like.index === this.props.picIndex){
         this.setStateLike();

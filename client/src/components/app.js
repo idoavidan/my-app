@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Comments from './Comments';
 import Like from './like';
 import AddPicComponent from './addPicComponent';
+import {initPromise} from './models/appModel';
 
 let styles = {
     header : {
@@ -25,17 +26,9 @@ const ImgBox = (props,context) => (
     <div>{props.each.title}</div>
     <div style={styles.ImgBox.underTitle}>
           <img src={props.each.url} alt="LOADING" style={styles.ImgBox.img}/>
-          <Like likes={props.each.likes} likeModel={props.likeModel} picIndex={props.picIndex}/>
-          <Comments comments={props.each.comments}
-                    commentModel={props.commentModel}
-                      picIndex={props.picIndex} />
+          <Like likes={props.each.likes} picIndex={props.picIndex}/>
+          <Comments comments={props.each.comments} picIndex={props.picIndex} />
     </div>
-  </div>
-)
-
-const AddImg = (props,context) => (
-  <div>
-    <span></span>
   </div>
 )
 
@@ -50,13 +43,11 @@ class App extends Component {
 
   async mapPicsToComponents(pics){
     return pics.map((each,index) =>
-        (<ImgBox each={each}
-       key={index} picIndex={index} commentModel={this.props.commentModel}
-       likeModel={this.props.likeModel}/>));
+        (<ImgBox each={each} key={index} picIndex={index} />));
   }
 
   async componentDidMount() {
-    const pics = await this.props.initPromise();
+    const pics = await initPromise();
     this.setStateAsync({pics : await this.mapPicsToComponents(pics.getPics.pics)});
   }
 
@@ -64,7 +55,7 @@ class App extends Component {
     return (
       <div >
         <h3 style={styles.header}>wow</h3>
-        <AddPicComponent picModel={this.props.picModel}/>
+        <AddPicComponent/>
         <div style={styles.outlet}>
         {this.state.pics || 'loading'}
         </div>
