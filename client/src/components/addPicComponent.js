@@ -43,6 +43,7 @@ class addPicComponent extends Component{
   handleSubmitButton(event){
     event.preventDefault();
     addPic(this.state.inputUrlValue, this.state.inputTitleValue);
+    this.props.updatePics();
     // console.log(this.state.inputUrlValue,this.state.inputTitleValue);
   }
 

@@ -1,5 +1,4 @@
 import {graphqlClient, socketClient} from './serverConnections';
-
 const query1 = (url,title) => '{addPic(url:"' +url+'", title : "'+title+'")}';
 //
 export const addPic =

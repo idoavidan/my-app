@@ -3,6 +3,7 @@ import Comments from './Comments';
 import Like from './like';
 import AddPicComponent from './addPicComponent';
 import {initPromise} from './models/appModel';
+import {socketClient} from './models/serverConnections';
 
 let styles = {
     header : {
@@ -46,16 +47,30 @@ class App extends Component {
         (<ImgBox each={each} key={index} picIndex={index} />));
   }
 
-  async componentDidMount() {
+  async updatePics(){
     const pics = await initPromise();
     this.setStateAsync({pics : await this.mapPicsToComponents(pics.getPics.pics)});
+  }
+
+  async componentDidMount() {
+    this.updatePics();
+    this.checkForNewPics();
+  }
+
+  async checkForNewPics(){
+    socketClient.addEventListener('message', event => {
+      const data = JSON.parse(event.data);
+      if(data.type === "PIC"){
+        this.updatePics();
+      }
+    });
   }
 
   render() {
     return (
       <div >
         <h3 style={styles.header}>wow</h3>
-        <AddPicComponent/>
+        <AddPicComponent updatePics={this.updatePics.bind(this)}/>
         <div style={styles.outlet}>
         {this.state.pics || 'loading'}
         </div>
