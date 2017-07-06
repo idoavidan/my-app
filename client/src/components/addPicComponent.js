@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {addPic} from './models/addPicModel';
 
 let styles = {
   margin : 'auto'
@@ -7,10 +8,10 @@ let styles = {
 const InputBox = (props, context) => (
   <div>
   <form onSubmit={props.handleSubmit}>
-    <label>
+    <label value="ido">
+      <span>{props.label}</span>
       <input type="text" value={props.inputUrlValue} onChange={props.handleChange} />
     </label>
-    <input type="submit" value="send"/>
   </form>
   </div>
 );
@@ -35,37 +36,25 @@ class addPicComponent extends Component{
     this.setState({inputUrlValue: event.target.value});
   }
 
-  handleUrlSubmit(event){
-    event.preventDefault();
-    this.setState({url : this.state.inputUrlValue});
-    console.log(this.state.inputUrlValue);
-
-  }
-
   handleTitleChange(event){
     this.setState({inputTitleValue: event.target.value});
   }
 
-  handleTitleSubmit(event){
-    event.preventDefault();
-    this.setState({title : this.state.inputTitleValue});
-    console.log(this.state.inputTitleValue);
-
+  handleSubmit(){
+    addPic(this.state.url, this.state.title);
   }
 
   render(){
-    const inputUrl =  (<InputBox handleSubmit={this.handleUrlSubmit.bind(this)}
-                                 handleChange={this.handleUrlChange.bind(this)}/>);
+    const inputUrl =  (<InputBox handleChange={this.handleUrlChange.bind(this)} label={"url"}/>);
 
-    const inputTitle = (<InputBox handleSubmit={this.handleTitleSubmit.bind(this)}
-                                 handleChange={this.handleTitleChange.bind(this)}/>);
+    const inputTitle = (<InputBox handleChange={this.handleTitleChange.bind(this)} label={"title"}/>);
 
     return(
       <div style={styles}>
         <span>IWantToBeComponent{this.state.inputUrlValue}</span>
         {inputUrl}
         {inputTitle}
-        <span>IamComponent</span>
+        <button onClick={this.handleSubmit.bind(this)}>send</button>
       </div>);
   }
 }
