@@ -1,7 +1,7 @@
 var JsonDB = require('node-json-db');
 
 import {buildSchema} from 'graphql';
-
+import {myEmitter} from './file.js';
 const ws = require("ws");
 
 //schema
@@ -56,6 +56,7 @@ const getLastPicPost = async () => {
 
 const getPics = async () => {
   const pics = db.getData("/testDB")
+  myEmitter.emit('getPics');
   // const rPics = pics.reverse();
   // console.log(pics.pics.reverse());
   // const rpics = {pics : pics.pics.reverse()};
