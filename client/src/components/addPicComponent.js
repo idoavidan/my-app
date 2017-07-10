@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import {addPic} from './models/addPicModel';
 
 let styles = {
-  margin : 'auto'
+  margin : 'auto',
+  textAlign: 'center',
+
 }
 
 const InputBox = (props, context) => (
@@ -19,16 +21,18 @@ const InputBox = (props, context) => (
 class addPicComponent extends Component{
   constructor(props){
     super(props);
+    this.state = {};
     // this.state = {url : "", title : ""}
   }
 
 
   async componentDidMount() {
     // this.props.likeModel.socket.addEventListener('message', event => {
-    //   const data = JSON.parse(event.data);
-    //   if(data.type === "LIKE" && data.like.index === this.props.picIndex){
-    //     this.setStateLike();
-    //   }
+    //   // const data = JSON.parse(event.data);
+    //   // if(data.type === "LIKE" && data.like.index === this.props.picIndex){
+    //   //   this.setStateLike();
+    //   // }
+    //   console.log(event.data);
     // });
   }
 
@@ -51,7 +55,7 @@ class addPicComponent extends Component{
     const inputUrl =  (<InputBox handleChange={this.handleUrlChange.bind(this)} label={"url"}/>);
 
     const inputTitle = (<InputBox handleChange={this.handleTitleChange.bind(this)} label={"title"}/>);
-
+ /* <img src={this.state.inputUrlValue} alt="LOADING"/>*/
     return(
       <div style={styles}>
         <span>add pics here</span>

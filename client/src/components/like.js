@@ -40,6 +40,7 @@ class Like extends Component{
       if(data.type === "LIKE" && data.like.index === this.props.picIndex){
         this.setStateLike();
       }
+      else {console.log(data)}
     });
   }
 
