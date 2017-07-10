@@ -2,6 +2,8 @@ var JsonDB = require('node-json-db');
 
 import {buildSchema} from 'graphql';
 
+const ws = require("ws");
+
 //schema
 export const schema = buildSchema(`
   type PicPost {
@@ -29,11 +31,8 @@ var db = new JsonDB("myDB", true, false);
 
 // The root provides a resolver function for each API endpoint
 const addLike = async function ({picIndex}) {
-  // wss.clients.forEach(function each(client) {
-  //   if (client !== ws && client.readyState === ws.OPEN) {
-  //       client.send("wowowow");
-  //       console.log("wowow");
-  //   }});
+  ws.emit("message",picIndex);
+  console.log(picIndex);
   const oldLikesAmount = db.getData("/testDB/pics[" +picIndex +"]/likes");
   db.push("/testDB/pics[" +picIndex +"]/likes", oldLikesAmount + 1);
   return oldLikesAmount;
