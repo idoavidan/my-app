@@ -31,8 +31,8 @@ var db = new JsonDB("myDB", true, false);
 
 // The root provides a resolver function for each API endpoint
 const addLike = async function ({picIndex}) {
-  ws.emit("message",picIndex);
-  console.log(picIndex);
+  // ws.emit("message",psicIndex);
+  // console.log(picIndex);
   const oldLikesAmount = db.getData("/testDB/pics[" +picIndex +"]/likes");
   db.push("/testDB/pics[" +picIndex +"]/likes", oldLikesAmount + 1);
   return oldLikesAmount;
